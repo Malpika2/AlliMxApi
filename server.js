@@ -16,10 +16,10 @@ db.sequelize.sync({ force: false }).then(() => {
 
 //GraphQL
 //Resolvers
-import resolvers from './graphQL/resolvers/resolvers'
+import resolvers from './graphql/resolvers/resolvers';
 
-//Resolvers
-import typeDefs from './graphQL/typeDefs/typeDefs'
+//Schemas
+import typeDefs from './graphql/typeDefs/typeDefs'
 //------------------
 
 const server = new ApolloServer({ typeDefs, resolvers, context: { db }})

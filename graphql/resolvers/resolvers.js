@@ -1,12 +1,15 @@
 const resolvers = {
     Query: {
         async getUser(root, args, { models }){
-            return await models.user.findByPk(args.id)
+            return await models.anthony_santiago_users.findByPk(args.id)
         }
     },
     Mutation: {
-        async createUser(root, { nombre, segundo, paterno, materno, fechaNacimiento, email, telefono}, { models }){
-            return await models.user.create( {nombre, segundo, paterno, materno, fechaNacimiento, email, telefono} )
+        async createUser(root, 
+                            { nombre, segundo, paterno, materno, fechaNacimiento, email, telefono}, 
+                            { models })
+        {
+            return await models.anthony_santiago_users.create( { nombre, segundo, paterno, materno, fechaNacimiento, email, telefono} )
         }
     }
 }

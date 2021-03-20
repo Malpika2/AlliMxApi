@@ -1,4 +1,4 @@
-
+// Configuracion sequelize
 const dbConfig = require('../config/db.config.js');
 const Sequelize = require('sequelize');
 
@@ -19,6 +19,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.users_test_anthony = require('./user.model')(sequelize, Sequelize);
+db.anthony_santiago_users = require('./user.model')(sequelize, Sequelize);
 
 module.exports = db;

@@ -7,31 +7,37 @@ module.exports = (sequelize, Sequelize) => {
         },
         nombre: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: false,
         },
         segundo: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true.valueOf,
+            defaultValue:''
         },
         paterno: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true,
+            defaultValue:''
         },
         materno: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true,
+            defaultValue:''
         },
         fechaNacimiento: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true,
+            defaultValue:''
         },
         email: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true.valueOf,
+            defaultValue:''
         },
         telefono: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true,
+            defaultValue:''
         },
     });
     return User;

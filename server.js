@@ -3,16 +3,10 @@ const { ApolloServer, gql } = require('apollo-server-express')
 
 
 //Models:
-const db = require("./app/models");
-// models.sequelize.authenticate().then(() =>{//Conexion a la BD
-//     console.log("Estas conectado a la BD")
-// });
-// models.sequelize.sync()//Sincronizacion de los modelos con la BD
-//--------------------
-db.sequelize.sync({ force: false }).then(() => {
+const models = require("./app/models/index")
+models.sequelize.sync({ force: false }).then(() => {
     console.log("Drop and re-sync db.");
-    // run();
-  });
+});
 
 //GraphQL
 //Resolvers
@@ -22,10 +16,11 @@ import resolvers from './graphql/resolvers/resolvers';
 import typeDefs from './graphql/typeDefs/typeDefs'
 //------------------
 
-const server = new ApolloServer({ typeDefs, resolvers, context: { db }})
+const server = new ApolloServer({ typeDefs, resolvers, context: { models }})
+
 const app = express();
 server.applyMiddleware( {app} );
 
 app.listen({ port: 4000 }, () => {
-    console.log("Corriendor Servidor Apollo en http://localhost:4000")
+  console.log("Corriendor Servidor Apollo en http://localhost:4000" + server.graphqlPath)
 })
